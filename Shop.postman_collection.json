@@ -1,0 +1,1145 @@
+{
+	"info": {
+		"_postman_id": "af6ac178-e174-4dc1-849c-48f19917ebce",
+		"name": "Shop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21801523",
+		"_collection_link": "https://warped-firefly-986549.postman.co/workspace/Team-Workspace~ec72b0c1-3814-46d6-8cb8-afb367e50bcb/collection/21801523-af6ac178-e174-4dc1-849c-48f19917ebce?action=share&source=collection_link&creator=21801523"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Update Password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"passwordCurrent\":\"password\",\r\n    \"password\":\"12345678\",\r\n    \"passwordConfirm\":\"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://eco-server-e7fy.onrender.com/api/v1/auth/updatePassword",
+							"host": [
+								"https://eco-server-e7fy.onrender.com/api/v1"
+							],
+							"path": [
+								"auth",
+								"updatePassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Unactive",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "https://eco-server-e7fy.onrender.com/api/v1/auth/deleteMe",
+							"host": [
+								"https://eco-server-e7fy.onrender.com/api/v1"
+							],
+							"path": [
+								"auth",
+								"deleteMe"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"cqh@gmail.com\",\r\n    \"name\":\"admin1\",\r\n    \"password\":\"12345678\",\r\n    \"passwordConfirm\":\"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://eco-server-e7fy.onrender.com/api/v1/auth/register",
+							"host": [
+								"https://eco-server-e7fy.onrender.com/api/v1"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"cqh@gmail.com\",\r\n    \"password\":\"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://eco-server-e7fy.onrender.com/api/v1/auth/login",
+							"host": [
+								"https://eco-server-e7fy.onrender.com/api/v1"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "log-out",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://eco-server-e7fy.onrender.com/api/v1/auth/logout",
+							"host": [
+								"https://eco-server-e7fy.onrender.com/api/v1"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Forgot Password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"cqh@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://eco-server-e7fy.onrender.com/api/v1/auth/forgotPassword",
+							"host": [
+								"https://eco-server-e7fy.onrender.com/api/v1"
+							],
+							"path": [
+								"auth",
+								"forgotPassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MTNlNTlmYWQ4MWU0MTczMjU1NTJmYiIsImlhdCI6MTcxMjU4Njc1OSwiZXhwIjoxNzE1MTc4NzU5fQ.wuKBVaG-0Xx69nzLM9rjlj3O8GIiR_Ud8UQcBOSle_U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\":\"password\",\r\n    \"passwordConfirm\":\"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://eco-server-e7fy.onrender.com/api/v1/auth/resetPassword/90c19c755bd3f13d10a3d665f25bdb15d7f7ca6c00addf9264589727bbab67d7",
+							"host": [
+								"https://eco-server-e7fy.onrender.com/api/v1"
+							],
+							"path": [
+								"auth",
+								"resetPassword",
+								"90c19c755bd3f13d10a3d665f25bdb15d7f7ca6c00addf9264589727bbab67d7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Create Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Áo Nam Addidas Basic",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "men",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "100",
+									"type": "text"
+								},
+								{
+									"key": "sizes",
+									"value": "S,  M, L",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "san pham chat luong cao ",
+									"type": "text"
+								},
+								{
+									"key": "files",
+									"type": "file",
+									"src": "/C:/Users/Hakuryu-kun/Desktop/529.jpg"
+								},
+								{
+									"key": "brand",
+									"value": "Addidas",
+									"type": "text"
+								},
+								{
+									"key": "colors",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://eco-server-e7fy.onrender.com/api/v1/products",
+							"host": [
+								"https://eco-server-e7fy.onrender.com/api/v1"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://eco-server-e7fy.onrender.com/api/v1/products",
+							"host": [
+								"https://eco-server-e7fy.onrender.com/api/v1"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://eco-server-e7fy.onrender.com/api/v1/products/{{prod_id}}",
+							"host": [
+								"https://eco-server-e7fy.onrender.com/api/v1"
+							],
+							"path": [
+								"products",
+								"{{prod_id}}"
+							],
+							"query": [
+								{
+									"key": "fields",
+									"value": "-createdAt,-updatedAt",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://eco-server-e7fy.onrender.com/api/v1/products/{{prod_id}}",
+							"host": [
+								"https://eco-server-e7fy.onrender.com/api/v1"
+							],
+							"path": [
+								"products",
+								"{{prod_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://eco-server-e7fy.onrender.com/api/v1/products/{{prod_id}}",
+							"host": [
+								"https://eco-server-e7fy.onrender.com/api/v1"
+							],
+							"path": [
+								"products",
+								"{{prod_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": []
+		},
+		{
+			"name": "Reviews",
+			"item": []
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Get All  Cate",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Cate",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://eco-server-e7fy.onrender.com/api/v1/categories/{{cate_id}}",
+							"host": [
+								"https://eco-server-e7fy.onrender.com/api/v1"
+							],
+							"path": [
+								"categories",
+								"{{cate_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Cate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "women",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Hakuryu-kun/Desktop/female_clothes_013b4bec9c.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://eco-server-e7fy.onrender.com/api/v1/categories",
+							"host": [
+								"https://eco-server-e7fy.onrender.com/api/v1"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Cate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "https://eco-server-e7fy.onrender.com/api/v1/categories/{{cate_id}}",
+							"host": [
+								"https://eco-server-e7fy.onrender.com/api/v1"
+							],
+							"path": [
+								"categories",
+								"{{cate_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://eco-server-e7fy.onrender.com/api/v1/categories/{{cate_id}}",
+							"host": [
+								"https://eco-server-e7fy.onrender.com/api/v1"
+							],
+							"path": [
+								"categories",
+								"{{cate_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Brand",
+			"item": [
+				{
+					"name": "Get All Brands",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://eco-server-e7fy.onrender.com/api/v1/brands",
+							"host": [
+								"https://eco-server-e7fy.onrender.com/api/v1"
+							],
+							"path": [
+								"brands"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Brand",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://eco-server-e7fy.onrender.com/api/v1/brands/{{brand_id}}",
+							"host": [
+								"https://eco-server-e7fy.onrender.com/api/v1"
+							],
+							"path": [
+								"brands",
+								"{{brand_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Brand",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Men\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://eco-server-e7fy.onrender.com/api/v1/brands",
+							"host": [
+								"https://eco-server-e7fy.onrender.com/api/v1"
+							],
+							"path": [
+								"brands"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Brand",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "https://eco-server-e7fy.onrender.com/api/v1/brands/{{brand_id}}",
+							"host": [
+								"https://eco-server-e7fy.onrender.com/api/v1"
+							],
+							"path": [
+								"brands",
+								"{{brand_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://eco-server-e7fy.onrender.com/api/v1/categories/{{brand_id}}",
+							"host": [
+								"https://eco-server-e7fy.onrender.com/api/v1"
+							],
+							"path": [
+								"categories",
+								"{{brand_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Color",
+			"item": [
+				{
+					"name": "Get All Colors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://eco-server-e7fy.onrender.com/api/v1/colors",
+							"host": [
+								"https://eco-server-e7fy.onrender.com/api/v1"
+							],
+							"path": [
+								"colors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Color",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://eco-server-e7fy.onrender.com/api/v1/colors/{{brand_id}}",
+							"host": [
+								"https://eco-server-e7fy.onrender.com/api/v1"
+							],
+							"path": [
+								"colors",
+								"{{brand_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Color",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Men\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://eco-server-e7fy.onrender.com/api/v1/colors",
+							"host": [
+								"https://eco-server-e7fy.onrender.com/api/v1"
+							],
+							"path": [
+								"colors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Brand",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "https://eco-server-e7fy.onrender.com/api/v1/colors/{{brand_id}}",
+							"host": [
+								"https://eco-server-e7fy.onrender.com/api/v1"
+							],
+							"path": [
+								"colors",
+								"{{brand_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://eco-server-e7fy.onrender.com/api/v1/colors/{{brand_id}}",
+							"host": [
+								"https://eco-server-e7fy.onrender.com/api/v1"
+							],
+							"path": [
+								"colors",
+								"{{brand_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reviews",
+			"item": [
+				{
+					"name": "Get All Reviews",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://eco-server-e7fy.onrender.com/api/v1/products/{{id}}/reviews",
+							"host": [
+								"https://eco-server-e7fy.onrender.com/api/v1"
+							],
+							"path": [
+								"products",
+								"{{id}}",
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Review",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://eco-server-e7fy.onrender.com/api/v1/products/{{prod_id}}/reviews/{{review_id}}",
+							"host": [
+								"https://eco-server-e7fy.onrender.com/api/v1"
+							],
+							"path": [
+								"products",
+								"{{prod_id}}",
+								"reviews",
+								"{{review_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Reviews",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"message\":\"san pham nhu loz\",\r\n    \"rating\":4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://eco-server-e7fy.onrender.com/api/v1/products/{{prod_id}}/reviews",
+							"host": [
+								"https://eco-server-e7fy.onrender.com/api/v1"
+							],
+							"path": [
+								"products",
+								"{{prod_id}}",
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Brand",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "https://eco-server-e7fy.onrender.com/api/v1/colors/{{brand_id}}",
+							"host": [
+								"https://eco-server-e7fy.onrender.com/api/v1"
+							],
+							"path": [
+								"colors",
+								"{{brand_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://eco-server-e7fy.onrender.com/api/v1/colors/{{brand_id}}",
+							"host": [
+								"https://eco-server-e7fy.onrender.com/api/v1"
+							],
+							"path": [
+								"colors",
+								"{{brand_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Get All Orders",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://eco-server-e7fy.onrender.com/api/v1/orders",
+							"host": [
+								"https://eco-server-e7fy.onrender.com/api/v1"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://eco-server-e7fy.onrender.com/api/v1/orders/{{order_id}}",
+							"host": [
+								"https://eco-server-e7fy.onrender.com/api/v1"
+							],
+							"path": [
+								"orders",
+								"{{order_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"products\":[\r\n        {\r\n            \"product\":\"66144a310d3bcd76372eb78b\",\r\n            \"quantity\":5\r\n        }\r\n\r\n    ],\r\n    \"address\":\"cxzczxc\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://eco-server-e7fy.onrender.com/api/v1/orders",
+							"host": [
+								"https://eco-server-e7fy.onrender.com/api/v1"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "https://eco-server-e7fy.onrender.com/api/v1/orders/{{order_id}}",
+							"host": [
+								"https://eco-server-e7fy.onrender.com/api/v1"
+							],
+							"path": [
+								"orders",
+								"{{order_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://eco-server-e7fy.onrender.com/api/v1/orders/{{order_id}}",
+							"host": [
+								"https://eco-server-e7fy.onrender.com/api/v1"
+							],
+							"path": [
+								"orders",
+								"6614790ef3fbb73408e6c267"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "jwt",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MTNlNTlmYWQ4MWU0MTczMjU1NTJmYiIsImlhdCI6MTcxMjU5NTE2MCwiZXhwIjoxNzE1MTg3MTYwfQ.hNHoLpu5oeJWKqr6-MaD765ocSzNYJI2l1R6hq88hTY"
+		},
+		{
+			"key": "prod_id",
+			"value": "66144a310d3bcd76372eb78b"
+		},
+		{
+			"key": "cate_id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "brand_id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "user_id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "review_id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "order_id",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
