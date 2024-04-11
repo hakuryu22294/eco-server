@@ -51,6 +51,7 @@ const sendErrorProd = (err, res) => {
         status: "Internal Server Error",
         message: "Something went very wrong!",
       });
+  console.log(err.isOperational);
 };
 module.exports = (err, req, res, next) => {
   err.statusCode = err.statusCode || 500;
