@@ -30,7 +30,10 @@ const createSendToken = (user, statusCode, req, res) => {
 exports.register = catchAsync(async (req, res, next) => {
   const countUsers = await User.countDocuments();
   const role = countUsers === 0 ? { role: "admin" } : { role: "user" };
-  const newUser = await User.create({ ...req.body, ...role });
+  const newUser = await User.create(
+    { ...req.body, ...role },
+    { validate: true }
+  );
   createSendToken(newUser, 201, req, res);
 });
 
