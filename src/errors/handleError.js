@@ -16,7 +16,7 @@ const handleDuplicateFieldsDB = (err) => {
 
 const handleValidationErrorDB = (err) => {
   const errors = Object.values(err.errors).map((el) => el.message);
-
+  console.log(errors);
   const message = `Invalid input data. ${errors.join(". ")}`;
   return new GlobalError(message, 400);
 };
@@ -42,7 +42,7 @@ const sendErrorDev = (err, res) => {
 };
 
 const sendErrorProd = (err, res) => {
-  err.isOperational
+  err.isOperational = true
     ? res.status(err.statusCode).json({
         status: err.status,
         message: err.message,
